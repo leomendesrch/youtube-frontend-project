@@ -5,7 +5,6 @@ import useVideosContext from "../hook/useVideosContext";
 
 export const UserContext = createContext({} as any)
 export const UserStorage = ({ children }: any) => {
-    const { GetVideos } = useVideosContext()
     const [login, setLogin] = useState(false);
     const [user, setUser] = useState({});
     const [token, setToken] = useState(localStorage.getItem('token') as string);
