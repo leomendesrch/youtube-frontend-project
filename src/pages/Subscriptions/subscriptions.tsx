@@ -2,14 +2,13 @@ import { ButtonContainer } from "../../components/header/header.style"
 import { Container, Division, SeeAll, SubsTop, VideoContainer } from "./subscriptions.styles"
 import ListIcon from '../../assets/list.png'
 import GradeIcon from '../../assets/two-rows-and-three-columns-layout.png'
-import VideoLibComponent from "../../components/videoLibraryComponent/videoLibComponent"
+import VideoLibComponent from "../../components/libraryVideos/libraryVideos"
 
-interface Iprops{
-    openMenu: boolean
-}
+import UseHamburguerContext from "../../hook/useHamburguerContext"
 
-function Subscriptions( { openMenu }: Iprops ){
+function Subscriptions(){
     const VideoArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    const { openMenu} = UseHamburguerContext()
 
     return(
             <Container>

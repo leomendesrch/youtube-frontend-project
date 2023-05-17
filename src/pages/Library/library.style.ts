@@ -98,12 +98,24 @@ export const InfoContainer = styled.div`
 `
 
 export const VideoContainer = styled.div<{ openMenu?: boolean }>`
-    width: ${({openMenu}) => openMenu? '100%' : '100%'};
+    width: 100%;
     max-width: 1600px;
     display: grid;
     grid-template-columns: ${({openMenu}) => openMenu? 'repeat(4, 1fr)' : 'repeat(5, 1fr)'};
     column-gap: ${({openMenu}) => openMenu? '20px' : '16px'};
     row-gap: ${({openMenu}) => openMenu? '50px' : '40px'};
     align-items: center;
-    margin: ${({openMenu}) => openMenu? '0' : '0 0px 0px 0px'};
+    margin: 0;
+`
+
+export const UserImage = styled.div`
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .1s;
+    font-size: 30px;
+    background-color: #f2f2f2;    
 `

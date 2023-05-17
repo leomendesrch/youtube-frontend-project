@@ -10,7 +10,7 @@ export const Container = styled.div<{ openMenu: boolean }>`
 `
 
 export const Division = styled.div<{ HomeDivision?: boolean }>`
-    width: 100%; 
+    max-width: 1600px; 
     margin: 12px 0 12px 0;
     display: flex;
     align-items: center;
@@ -24,6 +24,7 @@ export const ContainerShort = styled.div<{ openShortsContainer: boolean }>`
     display: ${({openShortsContainer}) => openShortsContainer? 'grid' : 'none'};
     grid-template-columns: repeat(8, 2fr);
     column-gap: 10px;
+    justify-content: center;
     row-gap: 50px;
     height: 400px;
 `

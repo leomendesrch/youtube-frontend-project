@@ -9,7 +9,6 @@ export const TopShort = styled.div`
 
 export const TopShortImage = styled.img`
     height: 20px;
-
 `
 
 export const TopShortText = styled.span`

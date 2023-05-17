@@ -1,22 +1,43 @@
-import { ChannelImage, Container, TextContainer, Title, TitleContainer, VideoBanner, VideoText } from "./videoComponent.style";
+import { ChannelImage, ChannelImageContainer, Container, TextContainer, Title, TitleContainer, VideoBanner, VideoText } from "./videoComponent.style";
+
 
 interface Iprops{
-    openMenu: boolean
+    title: string
+    channelTitle: string
+    thumbnails: string
+    channelName: string
+    details: string
+    videoId: string
 }
 
-function VideoComponent({ openMenu }: Iprops){
+const backgroundChannelColors = [
+    '#c58383',
+    '#8d8df4',
+    '#6ab46a',
+    '#a5a591',
+    '#ffd382',
+    '#b687b6',
+    '#9e9e9e'
+]
+
+const randomBackGroundColor = () => backgroundChannelColors[Math.floor(Math.random() * backgroundChannelColors.length)];
+
+function VideoComponent(props: Iprops){
+
     return(
-        <Container >
-        <VideoBanner openMenu={openMenu}  src="https://i.ytimg.com/vi/8pC2-LvGDbY/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCcK2p9gjGP3304XRVlyNRR8zLElw"/>
-            <TitleContainer>
-                <ChannelImage>L</ChannelImage>
-                <TextContainer>
-                    <Title>GEAR 5 LUFFY vs AWAKENED LUCCI</Title>
-                    <VideoText>Leo Mendes</VideoText>
-                    <VideoText>1 mi visualizações há 2 meses</VideoText>
-                </TextContainer>
-            </TitleContainer>
-        </Container>
+            <Container onClick={() => window.open(`https://youtu.be/${props.videoId}`)}>
+                <VideoBanner src={props.thumbnails}/>
+                <TitleContainer>
+                    <ChannelImageContainer>
+                        <ChannelImage style={{backgroundColor: randomBackGroundColor()}}>{props.channelTitle}</ChannelImage>
+                    </ChannelImageContainer>
+                    <TextContainer>
+                        <Title>{props.title}</Title>
+                        <VideoText>{props.channelName}</VideoText>
+                        <VideoText>{props.details}</VideoText>
+                    </TextContainer>
+                </TitleContainer>
+            </Container>
     )
 
 }

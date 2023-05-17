@@ -1,17 +1,18 @@
-import { Container, ItemContainer, TopItems, Division, Your, InfoContainer, SeeAll, VideoContainer } from "./library.style";
+import { Container, ItemContainer, TopItems, Division, Your, InfoContainer, SeeAll, VideoContainer, UserImage } from "./library.style";
 import HistoryIcon from '../../assets/historico.png'
 import UserIcon from '../../assets/leo.png'
 import WatchLater from '../../assets/assistirmaistarde.png'
 import Playlist from '../../assets/playlist.png'
 import LikeIcon from '../../assets/like.png'
 import Scissor from '../../assets/cut-with-scissors.png'
-import VideoLibComponent from "../../components/videoLibraryComponent/videoLibComponent";
+import PVideoComponent from "../../components/libraryVideos/libraryVideos";
 
-interface Iprops{
-    openMenu: boolean
-}
+import UseHamburguerContext from "../../hook/useHamburguerContext";
+import useUserContext from "../../hook/useUserContext";
 
-function Library({ openMenu }: Iprops){
+function Library(){
+    const {openMenu} = UseHamburguerContext()
+    const { userName } = useUserContext()
     return(
         <>
         <Container>
@@ -24,16 +25,16 @@ function Library({ openMenu }: Iprops){
                     <SeeAll>Ver tudo</SeeAll>
                 </TopItems>
                 <VideoContainer>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
                 </VideoContainer>
                 <Division />
 
@@ -45,16 +46,16 @@ function Library({ openMenu }: Iprops){
                     <SeeAll>Ver tudo</SeeAll>
                 </TopItems>
                 <VideoContainer>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
                 </VideoContainer>
                 <Division />
 
@@ -66,11 +67,11 @@ function Library({ openMenu }: Iprops){
                     <SeeAll>Ver tudo</SeeAll>
                 </TopItems>
                 <VideoContainer>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
                 </VideoContainer>
                 <Division />
 
@@ -82,11 +83,11 @@ function Library({ openMenu }: Iprops){
                     <SeeAll>Ver tudo</SeeAll>
                 </TopItems>
                 <VideoContainer>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
-                    <VideoLibComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
+                    <PVideoComponent openMenu={openMenu}/>
                 </VideoContainer>
                 <Division />
 
@@ -103,8 +104,8 @@ function Library({ openMenu }: Iprops){
             </ItemContainer>
 
             <Your>
-                <img src={UserIcon} alt="User icon"></img>
-                <span>LEOZIN</span>
+                <UserImage>{userName.charAt(0).toUpperCase()}</UserImage>
+                <span>{userName}</span>
                 <Division />
                 <InfoContainer>
                     <span>Inscrições</span>

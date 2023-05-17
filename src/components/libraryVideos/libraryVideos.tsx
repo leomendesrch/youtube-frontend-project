@@ -1,10 +1,10 @@
-import { Container, TextContainer, Title, TitleContainer, VideoBanner, VideoText } from "./videoLibComponent.style";
+import { Container, TextContainer, Title, TitleContainer, VideoBanner, VideoText } from './libraryVideos.style'
 
 interface Iprops{
     openMenu: boolean
 }
 
-function VideoLibComponent({ openMenu }: Iprops){
+function PVideoComponent({ openMenu }: Iprops){
     return(
         <Container >
         <VideoBanner openMenu={openMenu}  src="https://i.ytimg.com/vi/8pC2-LvGDbY/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCcK2p9gjGP3304XRVlyNRR8zLElw"/>
@@ -20,4 +20,4 @@ function VideoLibComponent({ openMenu }: Iprops){
 
 }
 
-export default VideoLibComponent;
+export default PVideoComponent;

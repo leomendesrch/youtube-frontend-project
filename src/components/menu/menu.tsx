@@ -1,4 +1,4 @@
-import { Container, Division, MenuItem, ButtonIcon, Footer } from './menu.style'
+import { Container, Division, MenuItem, ButtonIcon, Footer, LoginButtonContainer } from './menu.style'
 import HomeIcon from '../../assets/botao-de-inicio.png'
 import ShortsIcon from '../../assets/short.png'
 import SubscripteIcon from '../../assets/subscribe.png'
@@ -26,9 +26,14 @@ import ConfigIcon from '../../assets/settings.png'
 import ComplaintIcon from '../../assets/flags.png'
 import HelpIcon from '../../assets/question.png'
 import FeedbackIcon from '../../assets/feedback.png'
-import { useNavigate } from 'react-router-dom'
+import UserIcon from '../../assets/user.png'
 
-const closedMenuItem = [{ name: 'Início', src: HomeIcon, link: '/' }, {name: 'Shorts', src: ShortsIcon, link: '/shorts'}, {name: 'Inscrições', src: SubscripteIcon, link: '/subscription'}, {name: 'Biblioteca', src: BibliotecaIcon, link: '/library'}]
+import { useNavigate } from 'react-router-dom'
+import UseHamburguerContext from '../../hook/useHamburguerContext'
+import { UserContext } from '../../context/userContext'
+import { useContext } from 'react'
+
+const closedMenuItem = [{ name: 'Início', src: HomeIcon, link: '/' }, {name: 'Shorts', src: ShortsIcon, link: '/shorts'}, {name: 'Inscrições', src: SubscripteIcon, link: '/subscriptions'}, {name: 'Biblioteca', src: BibliotecaIcon, link: '/library'}]
 const openMenuItems = [
         {name: 'Início', src: HomeIcon, link: '/' },
         {name: 'Shorts', src: ShortsIcon, link: '/shorts' },
@@ -36,8 +41,8 @@ const openMenuItems = [
 ]
 const openMenuItemsDiv2 = [
         {name: 'Biblioteca', src: BibliotecaIcon, link: '/library' },
-        {name: 'Histórico', src: HistoryIcon, link: '/history' },
         {name: 'Seus Vídeos', src: VideoIcon, link: '/channel' },
+        {name: 'Histórico', src: HistoryIcon, link: '/history' },
         {name: 'Assistir mais tarde', src: WatchLaterIcon, link: '/' },
         {name: 'Videos marcados c...', src: LikeIcon, link: '/' },
         {name: 'Mostrar mais', src: SeeMore, link: '/' }
@@ -76,41 +81,58 @@ const openMenuItemsDiv6 = [
     {name: 'Enviar feedback', src: FeedbackIcon, link: '/' }
 ]
 
-interface Iprops{
-    openMenu: boolean
-}
 
-function Menu({ openMenu }: Iprops){
+function Menu(){
     const MyGitHub = 'https://github.com/leomendesrch'
     const navigate = useNavigate()
+
+    const { openMenu} = UseHamburguerContext()
+    const { login } = useContext(UserContext)
 
     return(
         openMenu? 
         <Container openMenu={openMenu}>
-            {openMenuItems.map((item) => (
-                <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)}>
+            {openMenuItems.map((item, index) => (
+                <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)} >
                     <ButtonIcon src={item.src} />
                     <span>{item.name}</span>
                 </MenuItem>
             ))}
 
             <Division openMenu={openMenu}/>
-            {openMenuItemsDiv2.map((item) => (
-                <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)}>
+            {openMenuItemsDiv2.map((item, index) => (
+                <MenuItem  openMenu={openMenu} onClick={() => navigate(item.link)} >
                     <ButtonIcon src={item.src} />
                     <span>{item.name}</span>
                 </MenuItem>
             ))}
 
             <Division openMenu={openMenu}/>
+
+            {login?
+            <>
             <span style={{ marginLeft: '-100px', marginBottom: '8px', fontWeight: '400', fontSize: '17px' }}>Inscrições</span>
             {openMenuItemsDiv3.map((item) => (
-                <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)}>
-                    <ButtonIcon src={item.src} style={{ borderRadius: '50%' }}/>
-                    <span>{item.name}</span>
-                </MenuItem>
-            ))}
+                 <MenuItem  openMenu={openMenu} onClick={() => navigate(item.link)} >
+                     <ButtonIcon src={item.src} style={{ borderRadius: '50%' }}/>
+                     <span>{item.name}</span>
+                 </MenuItem>
+             ))}
+             </>
+            :
+            <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', marginLeft: '10px' }}>
+            Faça login para curtir vídeos, comentar e se inscrever.
+            <LoginButtonContainer onClick={() =>  navigate('/login')}>
+                    <img  style={{ height: '18px' }} src={UserIcon} alt="login button"/>
+                    Fazer login
+                </LoginButtonContainer>
+            </div>
 
+            }
+
+
+
+            
             <Division openMenu={openMenu}/>
             <span style={{ marginLeft: '-110px', marginBottom: '8px', fontWeight: '400', fontSize: '17px' }}>Explorar</span>
             {openMenuItemsDiv4.map((item) => (

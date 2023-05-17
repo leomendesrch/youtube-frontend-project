@@ -4,6 +4,7 @@ import DislikeIcon from '../../assets/dislike.png'
 import ComentIcon from '../../assets/coment.png'
 import ShareIcon from '../../assets/share.png'
 import LuffyIcon from '../../assets/luffyicon2.png'
+
 function Shorts(){
     return(
         <>

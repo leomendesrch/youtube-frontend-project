@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 export const VideoBanner = styled.img<{ openMenu?: boolean}>`
     width: 100%;
-    height: ${({openMenu}) => openMenu? '120px' : '120px'};
+    height: 120px;
     border-radius: 12px;
 `
 
@@ -27,7 +27,7 @@ export const Title = styled.span `
     font-weight: 600;
     color: #0f0f0f;
     font-size: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 `
 
 export const VideoText = styled.span`

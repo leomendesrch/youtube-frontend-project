@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { HamburguerContext } from '../context/HamburguerContext'
+import { HamburguerContext } from '../context/hamburguerContext'
 
 function UseHamburguerContext(){
     const context = useContext(HamburguerContext)

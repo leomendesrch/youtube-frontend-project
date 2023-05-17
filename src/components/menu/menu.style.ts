@@ -13,7 +13,6 @@ export const Container = styled.div<{ openMenu: boolean }>`
     position: sticky;
     background-color: white;
     top: 55px;
-    z-index: 1;
     ::-webkit-scrollbar-thumb {
         background-color: white;
     }
@@ -96,5 +95,24 @@ export const Footer = styled.footer`
     span{
         font-size: 12px;
         color: #999999;
+    }
+`
+
+export const LoginButtonContainer = styled.div`
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .1s;
+    font-size: 15px;
+    border: 1px #E8E8E8 solid;
+    gap: 5px;
+    margin-top: 10px;
+    margin-left: 30px;
+    &:hover{
+        background-color: #f2f2f2;
     }
 `

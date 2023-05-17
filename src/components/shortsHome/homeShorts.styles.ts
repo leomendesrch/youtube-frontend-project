@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 export const ShortContainer = styled.div`
     height: 350px;
     width: 165px;
